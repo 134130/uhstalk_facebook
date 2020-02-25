@@ -59,8 +59,6 @@ function receivedMessage(event) {
         sendTextMessage(senderId, '학식');
     } else if (content == '스캐너') {
         sendTextMessage(senderId, 'http://uhstalk.duckdns.org:5000');
-    } else {
-        sendTextMessage(senderId, '학식 또는 스캐너 전송');
     }
 
     sendTextMessage(senderId, echo_message);
