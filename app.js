@@ -54,7 +54,15 @@ app.post('/webhook', function (req, res) {
 function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
-    var echo_message = content;
+    
+    if (content == '학식') {
+        sendTextMessage(senderId, '학식');
+    } else if (content == '스캐너') {
+        sendTextMessage(senderId, 'http://uhstalk.duckdns.org:5000');
+    } else {
+        sendTextMessage(senderId, '학식 또는 스캐너 전송');
+    }
+
     sendTextMessage(senderId, echo_message);
 }
 
