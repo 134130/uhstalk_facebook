@@ -38,7 +38,7 @@ app.post('/webhook', function (req, res) {
                 if (messagingEvent.optin) {
                     receivedAuthentication(messaginEvent);
                 } else if (messagingEvent.message) {
-                    receivedMessage(messaginEvent);
+                    receivedMessage(messagingEvent);
                 } else if (messagingEvent.postback) {
                     receivedPostback(messagingEvent);
                 } else {
