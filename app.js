@@ -76,7 +76,7 @@ function receivedMessage(event) {
             delete openChatDict2[senderId];
         }
         else if (content =='/입장') {
-            sendTextMessage(senderId, '닉네임을 입력해주세요');
+            //sendTextMessage(senderId, '닉네임을 입력해주세요');
             openChatDict2[senderId] = 1;
         } else {
             //sendTextMessage(senderId, "협성대학교 재학생들의 오픈채팅방입니다. /입장 /나가기 를 통해 이용해주세요~");
