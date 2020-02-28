@@ -59,6 +59,8 @@ app.post('/webhook', function (req, res) {
 function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
+
+    console.log(content);
     
     if (content == '1') {
         randomChatInit(senderId);
