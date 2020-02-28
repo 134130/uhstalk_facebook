@@ -65,12 +65,10 @@ function receivedMessage(event) {
         if (content == '/나가기') {
             delete openChatDict[senderId];
         } else {
-            setTimeout(() => {
-                for (var key in openChatDict) {
-                    var str = openChatDict[senderId] + ": " + content;
-                    sendTextMessage(key, str);
-                }
-            }, 1);
+            for (var key in openChatDict) {
+                var str = openChatDict[senderId] + ": " + content;
+                sendTextMessage(key, str);
+            }
         }
     } else {
         if (senderId in openChatDict2) {
@@ -78,7 +76,7 @@ function receivedMessage(event) {
             delete openChatDict2[senderId];
         }
         else if (content =='/입장') {
-            setTimeout(sendTextMessage, 1, senderId, '닉네임을 입력해주세요');
+            sendTextMessage(senderId, '닉네임을 입력해주세요');
             openChatDict2[senderId] = 1;
         } else {
             sendTextMessage(senderId, "협성대학교 재학생들의 오픈채팅방입니다. /입장 /나가기 를 통해 이용해주세요~");
