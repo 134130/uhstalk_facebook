@@ -55,13 +55,12 @@ function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
     
-    if (content === '학식') {
-        sendTextMessage(senderId, '학식');
-    } else if (content === '스캐너') {
-        sendTextMessage(senderId, 'http://uhstalk.duckdns.org:5000');
+
+    if (content == 1) {
+
     }
 
-    sendTextMessage(senderId, '안녕');
+    sendTextMessage(senderId, senderId);
 }
 
 function receivedPostback(event) {
