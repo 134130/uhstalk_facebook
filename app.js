@@ -2,9 +2,8 @@
 
 const http = require('http');
 setInterval(function() {
-	http.get("http://agile-castle-50630.herokuapp.com/");
-}, 600000);
-
+    http.get("http://agile-castle-50630.herokuapp.com/");
+}, 6000000);
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -61,12 +60,18 @@ function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
     
-
-    if (content == 1) {
-
+    if (content == '1') {
+        randomChatInit(senderId);
     }
 
-    sendTextMessage(senderId, senderId);
+    sendTextMessage(senderId, '1. 랜덤채팅');
+}
+
+var randomChatQueue = new Queue();
+function randomChatInit(senderId) {
+    randomChatQueue.enqueue(senderId);
+    var str = randomChatQueue.dataStore.length.toString() + '명과 랜덤매칭 시작!';
+    setTimeout(sendTextMessage, 1, senderId, str);
 }
 
 function receivedPostback(event) {
@@ -101,6 +106,34 @@ function sendTextMessage(recipientId, message) {
     });
 }
 
+
+function Queue() {
+    this.dataStore = [];
+    this.enqueue = function enqueue(element) {
+        this.dataStore.push(element);
+    };
+    this.dequeue = function dequeue() {
+        return this.dataStore.shift();
+    };
+    this.front = function front() {
+        return this.dataStore[0]
+    };
+    this.back = function back() {
+        return this.dataStore[this.dataStore.length-1];
+    };
+    this.toString = function toString() {
+        var retStr = "";
+        for (var i=0; i<this.dataStore.length; ++i) {
+            retStr += this.dataStore[i] + "\n";
+        }
+        return retStr;
+    }
+    this.empty = function empty() {
+        if(this.dataStore.length == 0) {
+            return true;
+        } else return false;
+    }
+}
 
 app.listen(app.get('port'), function () {
     console.log('running on port', app.get('port'));
