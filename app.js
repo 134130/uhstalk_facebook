@@ -59,7 +59,7 @@ function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
 
-    console.log("receive: ", content);
+    console.log("receive(",senderId,"): ", content);
 
     if (senderId in openChatDict) {
         if (content == '/나가기') {
@@ -79,7 +79,7 @@ function receivedMessage(event) {
             sendTextMessage(senderId, '닉네임을 입력해주세요');
             openChatDict2[senderId] = 1;
         } else {
-            sendTextMessage(senderId, "협성대학교 재학생들의 오픈채팅방입니다. /입장 /나가기 를 통해 이용해주세요~");
+            //sendTextMessage(senderId, "협성대학교 재학생들의 오픈채팅방입니다. /입장 /나가기 를 통해 이용해주세요~");
         }
     }
 
