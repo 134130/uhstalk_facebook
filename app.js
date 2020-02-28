@@ -131,7 +131,7 @@ function receivedPostback(event) {
 }
 
 function sendTextMessage(recipientId, message) {
-    print("send");
+    console.log("send");
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {
