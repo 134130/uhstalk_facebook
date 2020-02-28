@@ -46,7 +46,7 @@ app.post('/webhook', function (req, res) {
                 } else if (messagingEvent.postback) {
                     receivedPostback(messagingEvent);
                 } else {
-                    console.log('unknown messagingEvent: ', messagingEvent);
+                    console.log('unknown messagingEvent: ');
                 }
             });
         });
