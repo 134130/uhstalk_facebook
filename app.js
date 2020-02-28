@@ -32,7 +32,6 @@ app.get('/webhook', function (req, res) {
 
 app.post('/webhook', function (req, res) {
     var data = req.body;
-    console.log(data);
 
     if (data.object == 'page') {
         data.entry.forEach(function (pageEntry) {
@@ -59,6 +58,8 @@ app.post('/webhook', function (req, res) {
 function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
+
+    console.log("receive");
 
     if (senderId in openChatDict) {
         if (content == '/나가기') {
@@ -130,6 +131,7 @@ function receivedPostback(event) {
 }
 
 function sendTextMessage(recipientId, message) {
+    print("send");
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {
