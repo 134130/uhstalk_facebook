@@ -1,5 +1,11 @@
 'use strict'
 
+const http = require('http');
+setInterval(function() {
+	http.get("http://agile-castle-50630.herokuapp.com/");
+}, 600000);
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
