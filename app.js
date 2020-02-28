@@ -64,6 +64,10 @@ function receivedMessage(event) {
     if (senderId in openChatDict) {
         if (content == '/나가기') {
             delete openChatDict[senderId];
+            for (var key in openChatDict) {
+                var str = openChatDict[senderId] + "님이 채팅방을 나갔어요";
+                sendTextMessage(key, str);
+            }
         } else {
             for (var key in openChatDict) {
                 var str = openChatDict[senderId] + ": " + content;
@@ -74,6 +78,10 @@ function receivedMessage(event) {
         if (senderId in openChatDict2) {
             openChatDict[senderId] = content;
             delete openChatDict2[senderId];
+            for (var key in openChatDict) {
+                var str = openChatDict[senderId] + "님이 채팅방에 입장했어요";
+                sendTextMessage(key, str);
+            }
         }
         else if (content =='/입장') {
             sendTextMessage(senderId, '닉네임을 입력해주세요');
