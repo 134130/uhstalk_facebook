@@ -59,7 +59,7 @@ function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
 
-    console.log("receive");
+    console.log("receive: ", content);
 
     if (senderId in openChatDict) {
         if (content == '/나가기') {
@@ -131,7 +131,7 @@ function receivedPostback(event) {
 }
 
 function sendTextMessage(recipientId, message) {
-    console.log("send");
+    console.log("send: ", message);
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {
