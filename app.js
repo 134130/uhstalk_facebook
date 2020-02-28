@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 
-var PAGE_ACCESS_TOKEN = 'EAAM9kSWFrwsBAFa96QfqMX3ZBhJjPO3UM3zVmTnZArtVGjqLw0s0REtNZBzdyxB8Q0mzt75ndqc4SGqYF0FIz5sf2lntPopFvZCjdjZBLbVFlf50Nn5DzecEnJmD2yyuYZBf4EO9ElMiKzEByEA6ITaYOpI0yqEqKAfsZA2IHFLZC1fn1tcNQSoM';
+var PAGE_ACCESS_TOKEN = 'EAAM9kSWFrwsBACrMllZBuQ9LazjqKFMQBURpDYB7IZBa2XiyIR69El2axH6d8jwuaZCy9mk04gsVtbdEhOtvTNOz6F0uZAQ1DpiNpvdvjIj8caRLa1ZADYhFuWm8unbULVkzvi2tLHZAMcB2UVe3wad7sGTmQw99aKzebrQpHlewZBxcVRNvA5I';
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -59,8 +59,6 @@ app.post('/webhook', function (req, res) {
 function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
-
-    console.log(content);
     
     if (content == '1') {
         randomChatInit(senderId);
