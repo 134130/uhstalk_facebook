@@ -101,41 +101,6 @@ function receivedMessage(event) {
                 break;
             }
     }
-
-    if (content == '/입장' && !(senderId in openChatDict) && !(senderId in openChatDict2)) {
-        enterOpenChat(senderId);
-    } else if (content == )
-
-        if (senderId in openChatDict) {
-            if (content == '/나가기') {
-                delete openChatDict[senderId];
-                11111111111111111111111111111111
-                for (var key in openChatDict) {
-                    var str = openChatDict[senderId] + "님이 채팅방을 나갔어요";
-                    sendTextMessage(key, str);
-                }
-            } else {
-                for (var key in openChatDict) {
-                    var str = openChatDict[senderId] + ": " + content;
-                    sendTextMessage(key, str);
-                }
-            }
-        } else {
-            if (senderId in openChatDict2) {
-                openChatDict[senderId] = content;
-                111111111111111111111111111
-                delete openChatDict2[senderId];
-                for (var key in openChatDict) {
-                    var str = openChatDict[senderId] + "님이 채팅방에 입장했어요";
-                    sendTextMessage(key, str);
-                }
-            } else if (content == '/입장') {
-                sendTextMessage(senderId, '닉네임을 입력해주세요');
-                openChatDict2[senderId] = 1;
-            } else {
-
-            }
-        }
 }
 
 var collegeRank = [0, 0, 0, 0, 0]
