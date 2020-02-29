@@ -60,6 +60,7 @@ function receivedMessage(event) {
     var content = event.message.text;
 
     console.log("receive(", senderId, "): ", content);
+    console.log(openChatDict);
 
     switch (content) {
         case '/입장':
