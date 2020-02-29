@@ -98,7 +98,9 @@ function receivedMessage(event) {
                 break;
             } else if (senderId in openChatDict) {
                 randomTactGame();
-                sendTextMessage(senderId, content);
+                for (key in openChatDict) {
+                    sendTextMessage(key, openChatDict[key] + ": " + content);
+                }
                 break;
             } else {
                 sendTextMessage(senderId, "협성대학교 재학생들의 오픈채팅방입니다. /입장 /나가기 /도움말 를 통해 이용해주세요~");
@@ -127,7 +129,7 @@ function rankingGame(senderId, col) {
 }
 
 function randomTactGame() {
-    if (Math.floor(Math.random() * 10) == 0) {
+    if (Math.floor(Math.random() * 100) < 5 ) {
         for (var key in openChatDict) {
             var str = "[[ 눈치게임 시작!! ]]";
             sendTextMessage(key, str);
