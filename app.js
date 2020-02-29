@@ -70,10 +70,12 @@ function receivedMessage(event) {
             break;
         case '/도움말':
             var str = "지원되는 명령어: /입장, /나가기, /랭킹, /인사대, /경영대, /이공대, /예술대, /신학대"
+            break;
 
         case '/랭킹':
             var str = "인사대: " + collegeRank[0] + "\n경영대: " + collegeRank[1] + "\n이공대: " + collegeRank[2] + "\n예술대: " + collegeRank[3] + "\n신학대: " + collegeRank[4];
             sendTextMessage(senderId, str);
+            break;
         case '/인사대':
             rankingGame(senderId, 0);
             break;
