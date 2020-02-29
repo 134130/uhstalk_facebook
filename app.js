@@ -43,11 +43,11 @@ app.post('/webhook', function (req, res) {
                     receivedAuthentication(messagingEvent);
                 } else if (messagingEvent.message) {
                     receivedMessage(messagingEvent);
-                } /*else if (messagingEvent.postback) {
+                } else if (messagingEvent.postback) {
                     receivedPostback(messagingEvent);
                 } else {
-                    console.log('unknown messagingEvent: ');
-                }*/
+                    console.log('unknown messagingEvent: ', data);
+                }
             });
         });
 
