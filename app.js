@@ -132,7 +132,7 @@ function rankingGame(senderId, col) {
 }
 
 function randomTactGame() {
-    if (Math.floor(Math.random() * 100) < 5 ) {
+    if (Math.floor(Math.random() * 100) == 0 ) {
         for (var key in openChatDict) {
             var str = "[[ 눈치게임 시작!! ]]";
             sendTextMessage(key, str);
@@ -181,7 +181,7 @@ function receivedPostback(event) {
 }
 
 function sendTextMessage(recipientId, message) {
-    console.log("send   { "+ recipientId +" }: ", message);
+    //console.log("send   { "+ recipientId +" }: ", message);
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {
