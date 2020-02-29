@@ -58,6 +58,7 @@ app.post('/webhook', function (req, res) {
 function receivedMessage(event) {
     var senderId = event.sender.id;
     var content = event.message.text;
+    if (senderId == '106598840943440') return;
 
     console.log("receive(", senderId, "): ", content);
     console.log(openChatDict);
