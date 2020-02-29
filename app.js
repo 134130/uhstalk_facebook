@@ -132,6 +132,7 @@ function randomTactGame() {
 }
 
 function enterOpenChat(senderId, content) {
+    delete openChatDict2[senderId];
     openChatDict[senderId] = content;
     for (var key in openChatDict) {
         var str = openChatDict[senderId] + "님이 채팅방에 입장했어요";
